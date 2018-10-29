@@ -1,11 +1,19 @@
 showTodos:
   path: /
   controller: App\Controller\TodosController::showTodos
+  methods: [GET, HEAD]
+
+showCompleteTodos:
+  path: /complete/all
+  controller: App\Controller\TodosController::showCompletedTodos
+  methods: [GET, HEAD]
 
 completeTodo:
-  path: /complete
+  path: /complete/{id}
   controller: App\Controller\TodosController::completeTodo
+  methods: [GET, HEAD]
 
 uncompleteTodo:
-  path: /uncomplete
+  path: /uncomplete/{id}
   controller: App\Controller\TodosController::uncompleteTodo
+  methods: [GET, HEAD]
