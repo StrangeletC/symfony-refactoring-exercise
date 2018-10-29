@@ -1,5 +1,37 @@
-## Installation
+## Установка
 
-1. Clone the project
-2. Install composer dependencies
-3. Migrate database
+1. Клонируем проект
+
+2. Устанавливаем зависимости composer
+
+   ```bash
+   composer install
+   ```
+
+3. Проводи миграцию БД
+
+   ```bash
+   ./bin/console doctrine:migrations:migrate
+   ```
+
+4. Генерируем фейковые данные (потому что функции создания задач нет)
+
+   ```bash
+   ./bin/console doctrine:fixtures:load
+   ```
+
+5. Запускаем прокт на встроенном веб-сервере
+
+   ```bash
+   php -S localhost:8000 -t public/
+   ```
+
+
+
+## Что изменено
+
+~~Казалось бы, все и так работает :-)~~
+
+- Сырые SQL запросы заменены на Doctrine ORM. 
+- Задачи представляют из себя сущности (модели), реализуется паттерн Unit of work.
+- Миграция создает пустую таблицу в базе данных. Для тестов используеся генератор фейковых данных DoctrineFixturesBundle.
