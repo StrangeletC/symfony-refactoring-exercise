@@ -8,7 +8,7 @@
    composer install
    ```
 
-3. Проводи миграцию БД
+3. Проводим миграцию БД
 
    ```bash
    ./bin/console doctrine:migrations:migrate
@@ -20,7 +20,7 @@
    ./bin/console doctrine:fixtures:load
    ```
 
-5. Запускаем прокт на встроенном веб-сервере
+5. Запускаем проект на встроенном веб-сервере
 
    ```bash
    php -S localhost:8000 -t public/
