@@ -6,13 +6,14 @@
     </head>
     <body>
         <h1>Todo</h1>
-        <p><a href="{{ path('showTodos') }}?all=1">Show completed</a></p>
+        <p><a href="{{ path('showCompleteTodos') }}">Show completed</a></p>
+        <p><a href="{{ path('showTodos') }}">Show uncompleted</a></p>
         <ul>
             {% for todo in todos %}
                 {% if todo.completed %}
-                    <li><s>{{ todo.text }}</s> | <a href="{{ path('uncompleteTodo') }}?id={{ todo.id }}">Reset</a></li>
+                    <li><s>{{ todo.text }}</s> | <a href="{{ path('uncompleteTodo', {id: todo.id}) }}">Reset</a></li>
                 {% else %}
-                    <li>{{ todo.text }} | <a href="{{ path('completeTodo') }}?id={{ todo.id }}">Complete</a></li>
+                    <li>{{ todo.text }} | <a href="{{ path('completeTodo', {id: todo.id}) }}">Complete</a></li>
                 {% endif %}
             {% endfor %}
         </ul>
